@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    用户名：<input v-model="form.usercode" type="text">
+    密码：<input v-model="form.password" type="text">
+    <button @click="handleLogin">login</button>
+    <button @click="handleLogout">logout</button>
+    <button @click="handleRequest">request</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          form: {
+            usercode: 'zhangsan',
+            password: '123456'
+          }
+        }
+      },
+      created () {
+        axios.interceptors.request.use(
+          config => {
+            const token = sessionStorage.getItem('token')
+            if (token) {
+              config.headers.Authorization = 'Bearer ' + token
+            }
+            return config
+          },
+          err => {
+            return Promise.reject(err)
+          }
+        )
+        axios.interceptors.response.use(
+          res => {
+            return Promise.resolve(res.data)
+          },
+          err => {
+            if (err.response.status === 401) {
+              alert('请登录')
+            }
+            return Promise.reject(err)
+          }
+        )
+      },
+      methods: {
+        handleLogin () {
+          axios.get('/login', {
+            params: this.form
+          }).then((response) => {
+            sessionStorage.setItem('token', response.data)
+          })
+        },
+        handleLogout () {
+          sessionStorage.removeItem('token')
+        },
+        handleRequest () {
+          axios.get('/user/getUserList').then((response) => {
+            console.log(response)
+          })
+        },
+      }
+    })
+  </script>
+</body>
+</html>
