@@ -1,15 +1,24 @@
 const userDao = require('../models/dao/userDao');
 const jsonwebtoken = require('jsonwebtoken');
 const { secret, privateKey } = require('../../config');
-const JSEncrypt = require('jsencrypt/bin/jsencrypt');
+const NodeRsa = require('node-rsa');
 
 module.exports = {
   login: async ctx => {
     let { usercode, password } = ctx.request.query;
 
-    const encrypt = new JSEncrypt();
-    encrypt.setPrivateKey(privateKey)
-    password = encrypt.decrypt(password)
+    /* const key = new NodeRsa({ b: 1024 })
+    key.setOptions({ encryptionScheme: 'pkcs1' })
+
+    const publicPem = key.exportKey('pkcs8-public-pem')
+    const privatePem = key.exportKey('pkcs8-private-pem')
+
+    console.log(publicPem)
+    console.log(privatePem) */
+
+    const decrypt = new NodeRsa(privateKey, 'pkcs8-private-pem')
+    decrypt.setOptions({ encryptionScheme: 'pkcs1' })
+    password = decrypt.decrypt(password, 'utf8')
 
     if (!usercode || !password) {
       ctx.body = {

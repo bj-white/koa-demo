@@ -1,0 +1,53 @@
+[2022-11-11T15:21:15.472] [ERROR] anything - Error: connect ECONNREFUSED 127.0.0.1:33061
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
+    --------------------
+    at Protocol._enqueue (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (F:\learn\koa\koa-demo\node_modules\mysql\lib\Pool.js:48:16)
+    at F:\learn\koa\koa-demo\app\models\dao\db.js:18:10
+    at new Promise (<anonymous>)
+    at Object.db.query (F:\learn\koa\koa-demo\app\models\dao\db.js:16:10)
+    at Object.login (F:\learn\koa\koa-demo\app\models\dao\userDao.js:13:21)
+    at login (F:\learn\koa\koa-demo\app\controllers\userController.js:17:32)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32) {
+  errno: -4078,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 33061,
+  fatal: true
+}
+[2022-11-11T15:27:26.268] [ERROR] anything - Error: Error during decryption (probably incorrect key). Original error: Error: error:04099079:rsa routines:RSA_padding_check_PKCS1_OAEP_mgf1:oaep decoding error
+    at NodeRSA.module.exports.NodeRSA.$$decryptKey (F:\learn\koa\koa-demo\node_modules\node-rsa\src\NodeRSA.js:301:19)
+    at NodeRSA.module.exports.NodeRSA.decrypt (F:\learn\koa\koa-demo\node_modules\node-rsa\src\NodeRSA.js:249:21)
+    at login (F:\learn\koa\koa-demo\app\controllers\userController.js:11:23)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:26:14
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+[2022-11-11T15:28:07.534] [ERROR] anything - Error: Error during decryption (probably incorrect key). Original error: Error: error:04099079:rsa routines:RSA_padding_check_PKCS1_OAEP_mgf1:oaep decoding error
+    at NodeRSA.module.exports.NodeRSA.$$decryptKey (F:\learn\koa\koa-demo\node_modules\node-rsa\src\NodeRSA.js:301:19)
+    at NodeRSA.module.exports.NodeRSA.decrypt (F:\learn\koa\koa-demo\node_modules\node-rsa\src\NodeRSA.js:249:21)
+    at login (F:\learn\koa\koa-demo\app\controllers\userController.js:11:23)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:26:14
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+[2022-11-11T15:38:59.744] [ERROR] anything - Error: Error during decryption (probably incorrect key). Original error: Error: error:04099079:rsa routines:RSA_padding_check_PKCS1_OAEP_mgf1:oaep decoding error
+    at NodeRSA.module.exports.NodeRSA.$$decryptKey (F:\learn\koa\koa-demo\node_modules\node-rsa\src\NodeRSA.js:301:19)
+    at NodeRSA.module.exports.NodeRSA.decrypt (F:\learn\koa\koa-demo\node_modules\node-rsa\src\NodeRSA.js:249:21)
+    at login (F:\learn\koa\koa-demo\app\controllers\userController.js:10:40)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:26:14
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)

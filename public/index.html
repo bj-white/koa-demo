@@ -27,13 +27,10 @@
             password: '123456'
           },
           publicKey: `-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4FfGlQn6NKRyWxJwf9Q0
-NGirIbqenXO2Auotw5cfUvWDaTnJ1hcCZ9caHUOIUl7qQe4ejbrG/QlswanHzX6u
-co0DCVnnAAKp6ABccT5kjk+MmVLknTOY716HHVlQvnNhdXtO0Z5htQNrpqcDYDQc
-zQHWx77csnWS0BDM2ZpYIkauZWih2D6G8/eIeKjG/z+uQctMcK5nyHKAEwnDefT7
-89vK6oA8OYJ46TJOhS4M0ZbArhwGOfkgERt1DXWUZdgWoLNrZnKvFQnbXY5MqFZ8
-dDa+L2GE4y6Uile3MFvDEFJ4aX+QpjhcudEF1YaVagLCaBIPg1zLkGQjLR/NsUFs
-MQIDAQAB
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCTVAqSg8O9wsXZWj7q2+EjFgNM
+J4yn23p2v5SrP1pkg4pPl6Idxq04p7DxCzuUVbeIR39zGut+LAImp9hOVtxH/Hq+
+93a7ZSb/p9+wEjgPCF+pSbFH3rycj2vBM12RLL4CV7BJ4XcnNhyE8g/vFE+1YJfB
+W9wHPTkZEeyNFaZjkwIDAQAB
 -----END PUBLIC KEY-----`
         }
       },
@@ -64,11 +61,11 @@ MQIDAQAB
       },
       methods: {
         handleLogin () {
-          var encrypt = new JSEncrypt();
-          encrypt.setPublicKey(this.publicKey);
+          const encryptor = new JSEncrypt();
+          encryptor.setPublicKey(this.publicKey);
           const params = {
             usercode: this.form.usercode,
-            password: encrypt.encrypt(this.form.password)
+            password: encryptor.encrypt(this.form.password)
           }
           axios.get('/login', { params }).then((response) => {
             sessionStorage.setItem('token', response.data)
