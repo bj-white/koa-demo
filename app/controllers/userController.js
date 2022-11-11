@@ -1,17 +1,15 @@
-/*
- * @Description: 用户模块控制器
- * @Author: hai-27
- * @Date: 2020-02-07 16:51:56
- * @LastEditors: hai-27
- * @LastEditTime: 2020-03-27 16:03:09
- */
 const userDao = require('../models/dao/userDao');
 const jsonwebtoken = require('jsonwebtoken');
-const { secret } = require('../../config');
+const { secret, privateKey } = require('../../config');
+const JSEncrypt = require('jsencrypt/bin/jsencrypt');
 
 module.exports = {
   login: async ctx => {
-    const { usercode, password } = ctx.request.query;
+    let { usercode, password } = ctx.request.query;
+
+    const encrypt = new JSEncrypt();
+    encrypt.setPrivateKey(privateKey)
+    password = encrypt.decrypt(password)
 
     if (!usercode || !password) {
       ctx.body = {
@@ -32,7 +30,7 @@ module.exports = {
     }
 
     if (user.length === 1) {
-      const token = jsonwebtoken.sign({ id: user[0].id }, secret, { expiresIn: '3h' }) // token 有效期为3小时
+      const token = jsonwebtoken.sign({ id: user[0].id }, secret, { expiresIn: '10s' }) // token 有效期为3小时
 
       ctx.body = {
         code: '003',

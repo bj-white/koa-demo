@@ -14,6 +14,7 @@
     <button @click="handleLogout">logout</button>
     <button @click="handleRequest">request</button>
   </div>
+  <script src="./jsencrypt.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
@@ -24,7 +25,16 @@
           form: {
             usercode: 'zhangsan',
             password: '123456'
-          }
+          },
+          publicKey: `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4FfGlQn6NKRyWxJwf9Q0
+NGirIbqenXO2Auotw5cfUvWDaTnJ1hcCZ9caHUOIUl7qQe4ejbrG/QlswanHzX6u
+co0DCVnnAAKp6ABccT5kjk+MmVLknTOY716HHVlQvnNhdXtO0Z5htQNrpqcDYDQc
+zQHWx77csnWS0BDM2ZpYIkauZWih2D6G8/eIeKjG/z+uQctMcK5nyHKAEwnDefT7
+89vK6oA8OYJ46TJOhS4M0ZbArhwGOfkgERt1DXWUZdgWoLNrZnKvFQnbXY5MqFZ8
+dDa+L2GE4y6Uile3MFvDEFJ4aX+QpjhcudEF1YaVagLCaBIPg1zLkGQjLR/NsUFs
+MQIDAQAB
+-----END PUBLIC KEY-----`
         }
       },
       created () {
@@ -54,9 +64,13 @@
       },
       methods: {
         handleLogin () {
-          axios.get('/login', {
-            params: this.form
-          }).then((response) => {
+          var encrypt = new JSEncrypt();
+          encrypt.setPublicKey(this.publicKey);
+          const params = {
+            usercode: this.form.usercode,
+            password: encrypt.encrypt(this.form.password)
+          }
+          axios.get('/login', { params }).then((response) => {
             sessionStorage.setItem('token', response.data)
           })
         },
