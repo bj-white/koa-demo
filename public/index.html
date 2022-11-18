@@ -8,11 +8,37 @@
 </head>
 <body>
   <div id="app">
-    用户名：<input v-model="form.usercode" type="text">
-    密码：<input v-model="form.password" type="text">
-    <button @click="handleLogin">login</button>
-    <button @click="handleLogout">logout</button>
-    <button @click="handleRequest">request</button>
+    <fieldset>
+      <legend>登录</legend>
+      用户名：<input v-model="form1.usercode" type="text">
+      密码：<input v-model="form1.password" type="password">
+      <button @click="handleLogin">登录</button>
+      <button @click="handleLogout">退出</button>
+    </fieldset>
+    <fieldset>
+      <legend>注册</legend>
+      用户名：<input v-model="form2.usercode" type="text">
+      密码：<input v-model="form2.password" type="password">
+      <button @click="handleRegister">注册</button>
+    </fieldset>
+    <fieldset>
+      <legend>删除</legend>
+      用户名：<input v-model="form1.usercode" type="text">
+      密码：<input v-model="form1.password" type="password">
+      <button @click="handleLogin">删除</button>
+    </fieldset>
+    <fieldset>
+      <legend>修改</legend>
+      用户名：<input v-model="form1.usercode" type="text">
+      密码：<input v-model="form1.password" type="password">
+      <button @click="handleLogin">修改</button>
+    </fieldset>
+    <fieldset>
+      <legend>查询</legend>
+      <ul>
+        <li v-for="(item, key) in userList" :key="key">{{ item.usercode }}</li>
+      </ul>
+    </fieldset>
   </div>
   <script src="./jsencrypt.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -22,16 +48,21 @@
       el: '#app',
       data () {
         return {
-          form: {
-            usercode: 'zhangsan',
-            password: '123456'
+          form1: {
+            usercode: '',
+            password: ''
+          },
+          form2: {
+            usercode: '',
+            password: ''
           },
           publicKey: `-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCTVAqSg8O9wsXZWj7q2+EjFgNM
 J4yn23p2v5SrP1pkg4pPl6Idxq04p7DxCzuUVbeIR39zGut+LAImp9hOVtxH/Hq+
 93a7ZSb/p9+wEjgPCF+pSbFH3rycj2vBM12RLL4CV7BJ4XcnNhyE8g/vFE+1YJfB
 W9wHPTkZEeyNFaZjkwIDAQAB
------END PUBLIC KEY-----`
+-----END PUBLIC KEY-----`,
+          userList: []
         }
       },
       created () {
@@ -58,17 +89,22 @@ W9wHPTkZEeyNFaZjkwIDAQAB
             return Promise.reject(err)
           }
         )
+        this.handleRequest()
       },
       methods: {
         handleLogin () {
           const encryptor = new JSEncrypt();
           encryptor.setPublicKey(this.publicKey);
           const params = {
-            usercode: this.form.usercode,
-            password: encryptor.encrypt(this.form.password)
+            usercode: this.form1.usercode,
+            password: encryptor.encrypt(this.form1.password)
           }
           axios.get('/login', { params }).then((response) => {
-            sessionStorage.setItem('token', response.data)
+            if (response.code === '003') {
+              sessionStorage.setItem('token', response.data)
+            } else {
+              alert('账号密码错误')
+            }
           })
         },
         handleLogout () {
@@ -76,9 +112,15 @@ W9wHPTkZEeyNFaZjkwIDAQAB
         },
         handleRequest () {
           axios.get('/user/getUserList').then((response) => {
-            console.log(response)
+            this.userList = response.list
           })
         },
+        handleRegister () {
+          axios.get('/user/register', { params: this.form2 }).then((response) => {
+            console.log(response)
+            this.handleRequest()
+          })
+        }
       }
     })
   </script>

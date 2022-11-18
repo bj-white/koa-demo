@@ -51,3 +51,223 @@
     at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
     at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:26:14
     at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+[2022-11-14T09:04:59.092] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:23:22)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-compose\index.js:42:32)
+[2022-11-15T16:10:02.850] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:23:22)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-compose\index.js:42:32)
+[2022-11-15T16:10:17.782] [ERROR] anything - Error: ER_BAD_NULL_ERROR: Column 'usercode' cannot be null
+    at Query.Sequence._packetToError (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:309:12)
+    --------------------
+    at Protocol._enqueue (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at PoolConnection.query (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:198:25)
+    at F:\learn\koa\koa-demo\app\models\db.js:25:18
+    at Ping.onOperationComplete (F:\learn\koa\koa-demo\node_modules\mysql\lib\Pool.js:110:5)
+    at Ping.<anonymous> (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:526:10)
+    at Ping._callback (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:488:16)
+    at Ping.Sequence.end (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Ping.Sequence.OkPacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Parser.js:433:10) {
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: "Column 'usercode' cannot be null",
+  sqlState: '23000',
+  index: 0,
+  sql: 'insert into user values (null, NULL, NULL)'
+}
+[2022-11-15T16:12:22.918] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:66:26)
+    at async serve (F:\learn\koa\koa-demo\node_modules\koa-static\index.js:53:9)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\rewriteUrl.js:12:3)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\error.js:19:5) {
+  originalError: TokenExpiredError: jwt expired
+      at F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:152:21
+      at getSecret (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:90:14)
+      at Object.module.exports [as verify] (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:94:10)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:5:23
+      at new Promise (<anonymous>)
+      at module.exports (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:4:12)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:64
+      at Array.map (<anonymous>)
+      at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:43)
+      at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12 {
+    expiredAt: 2022-11-15T08:10:25.000Z
+  }
+}
+[2022-11-15T16:12:26.923] [ERROR] anything - Error: ER_BAD_NULL_ERROR: Column 'usercode' cannot be null
+    at Query.Sequence._packetToError (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:309:12)
+    --------------------
+    at Protocol._enqueue (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at PoolConnection.query (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:198:25)
+    at F:\learn\koa\koa-demo\app\models\db.js:25:18
+    at Ping.onOperationComplete (F:\learn\koa\koa-demo\node_modules\mysql\lib\Pool.js:110:5)
+    at Ping.<anonymous> (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:526:10)
+    at Ping._callback (F:\learn\koa\koa-demo\node_modules\mysql\lib\Connection.js:488:16)
+    at Ping.Sequence.end (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Ping.Sequence.OkPacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (F:\learn\koa\koa-demo\node_modules\mysql\lib\protocol\Parser.js:433:10) {
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: "Column 'usercode' cannot be null",
+  sqlState: '23000',
+  index: 0,
+  sql: 'insert into user values (null, NULL, NULL)'
+}
+[2022-11-15T16:13:51.850] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:66:26)
+    at async serve (F:\learn\koa\koa-demo\node_modules\koa-static\index.js:53:9)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\rewriteUrl.js:12:3)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\error.js:19:5) {
+  originalError: TokenExpiredError: jwt expired
+      at F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:152:21
+      at getSecret (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:90:14)
+      at Object.module.exports [as verify] (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:94:10)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:5:23
+      at new Promise (<anonymous>)
+      at module.exports (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:4:12)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:64
+      at Array.map (<anonymous>)
+      at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:43)
+      at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12 {
+    expiredAt: 2022-11-15T08:13:40.000Z
+  }
+}
+[2022-11-15T16:14:08.621] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:66:26)
+    at async serve (F:\learn\koa\koa-demo\node_modules\koa-static\index.js:53:9)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\rewriteUrl.js:12:3)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\error.js:19:5) {
+  originalError: TokenExpiredError: jwt expired
+      at F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:152:21
+      at getSecret (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:90:14)
+      at Object.module.exports [as verify] (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:94:10)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:5:23
+      at new Promise (<anonymous>)
+      at module.exports (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:4:12)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:64
+      at Array.map (<anonymous>)
+      at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:43)
+      at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12 {
+    expiredAt: 2022-11-15T08:14:06.000Z
+  }
+}
+[2022-11-15T16:15:09.372] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:66:26)
+    at async serve (F:\learn\koa\koa-demo\node_modules\koa-static\index.js:53:9)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\rewriteUrl.js:12:3)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\error.js:19:5) {
+  originalError: TokenExpiredError: jwt expired
+      at F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:152:21
+      at getSecret (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:90:14)
+      at Object.module.exports [as verify] (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:94:10)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:5:23
+      at new Promise (<anonymous>)
+      at module.exports (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:4:12)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:64
+      at Array.map (<anonymous>)
+      at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:43)
+      at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12 {
+    expiredAt: 2022-11-15T08:14:06.000Z
+  }
+}
+[2022-11-15T16:15:17.814] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:66:26)
+    at async serve (F:\learn\koa\koa-demo\node_modules\koa-static\index.js:53:9)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\rewriteUrl.js:12:3)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\error.js:19:5) {
+  originalError: TokenExpiredError: jwt expired
+      at F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:152:21
+      at getSecret (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:90:14)
+      at Object.module.exports [as verify] (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:94:10)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:5:23
+      at new Promise (<anonymous>)
+      at module.exports (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:4:12)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:64
+      at Array.map (<anonymous>)
+      at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:43)
+      at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12 {
+    expiredAt: 2022-11-15T08:14:06.000Z
+  }
+}
+[2022-11-15T16:23:37.003] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:66:26)
+    at async serve (F:\learn\koa\koa-demo\node_modules\koa-static\index.js:53:9)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\rewriteUrl.js:12:3)
+    at async module.exports (F:\learn\koa\koa-demo\app\middleware\error.js:19:5) {
+  originalError: JsonWebTokenError: jwt malformed
+      at Object.module.exports [as verify] (F:\learn\koa\koa-demo\node_modules\jsonwebtoken\verify.js:63:17)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:5:23
+      at new Promise (<anonymous>)
+      at module.exports (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\verify.js:4:12)
+      at F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:64
+      at Array.map (<anonymous>)
+      at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:38:43)
+      at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12
+      at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+      at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+}
+[2022-11-17T19:35:22.360] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:23:22)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-compose\index.js:42:32)
+[2022-11-18T09:08:59.318] [ERROR] anything - UnauthorizedError: Authentication Error
+    at Object.throw (F:\learn\koa\koa-demo\node_modules\koa\lib\context.js:97:11)
+    at jwt (F:\learn\koa\koa-demo\node_modules\koa-jwt\lib\index.js:23:22)
+    at F:\learn\koa\koa-demo\node_modules\koa-unless\index.js:29:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:346:16
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at F:\learn\koa\koa-demo\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-router\lib\router.js:351:31)
+    at dispatch (F:\learn\koa\koa-demo\node_modules\koa-compose\index.js:42:32)

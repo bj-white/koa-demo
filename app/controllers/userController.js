@@ -1,4 +1,4 @@
-const userDao = require('../models/dao/userDao');
+const userDao = require('../models/userDao');
 const jsonwebtoken = require('jsonwebtoken');
 const { secret, privateKey } = require('../../config');
 const NodeRsa = require('node-rsa');
@@ -30,16 +30,20 @@ module.exports = {
 
     const user = await userDao.login(usercode, password);
 
+    console.log(user.length);
+
     if (!user.length) {
+      console.log(1)
       ctx.body = {
         code: '002',
         msg: '用户名或密码错误'
       }
       return;
     }
+    console.log(2)
 
     if (user.length === 1) {
-      const token = jsonwebtoken.sign({ id: user[0].id }, secret, { expiresIn: '10s' }) // token 有效期为3小时
+      const token = jsonwebtoken.sign({ id: user[0].id }, secret, { expiresIn: '3h' }) // token 有效期为小时
 
       ctx.body = {
         code: '003',
@@ -63,4 +67,14 @@ module.exports = {
       list
     }
   },
+  register: async ctx => {
+    let { usercode, password } = ctx.request.query;
+    console.log(usercode, password)
+    const user = await userDao.register(usercode, password);
+    ctx.body = {
+      code: '200',
+      msg: 'ok',
+      user
+    }
+  }
 };

@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-02-27 13:20:11
  */
 var mysql = require('mysql');
-const { dbConfig } = require('../../../config');
+const { dbConfig } = require('../../config');
 var pool = mysql.createPool(dbConfig);
 
 var db = {};

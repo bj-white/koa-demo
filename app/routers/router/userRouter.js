@@ -12,6 +12,7 @@ let userRouter = new Router();
 
 userRouter
   .get('/login', userController.login)
-  .get('/user/getUserList', userController.getUserList);
+  .get('/user/getUserList', userController.getUserList)
+  .get('/user/register', userController.register);
 
 module.exports = userRouter;

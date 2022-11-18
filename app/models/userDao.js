@@ -15,5 +15,9 @@ module.exports = {
   getUserList: async () => {
     const sql = 'select * from user';
     return await db.query(sql);
+  },
+  register: async (usercode, password) => {
+    const sql = 'insert into user values (null, ?, ?)';
+    return await db.query(sql, [usercode, password]);
   }
 }
